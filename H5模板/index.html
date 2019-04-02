@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>孝行山金，感恩相伴</title>
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- uc强 制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- qq强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <script>
+        //根据浏览器宽度给font-size赋值，rem。
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize' ,
+                recalc = function () {
+                    window.clientWidth = docEl.clientWidth;
+                    if (! window.clientWidth) return ;
+                    docEl. style.fontSize = 20 * (window.clientWidth / 320) + 'px';
+                    window.base = 20 * ( window.clientWidth / 320);
+                };
+            // Abort if browser does not support addEventListener
+            if (! doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener( 'DOMContentLoaded', recalc, false);
+        })(document, window);
+        //搞定辣鸡微信调整字体大小造成的错乱
+        (function () {
+            if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+                handleFontSize();
+            } else {
+                if (document.addEventListener) {
+                    document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+                } else if (document.attachEvent) {
+                    document.attachEvent("WeixinJSBridgeReady", handleFontSize);
+                    document.attachEvent("onWeixinJSBridgeReady", handleFontSize);
+                }
+            }
+            function handleFontSize() {
+                // 设置网页字体为默认大小
+                WeixinJSBridge.invoke('setFontSizeCallback', {
+                    'fontSize': 0
+                });
+                // 重写设置网页字体大小的事件
+                WeixinJSBridge.on('menu:setfont', function () {
+                    WeixinJSBridge.invoke('setFontSizeCallback', {
+                        'fontSize': 0
+                    });
+                });
+            }
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+</head>
+<body>
+    <div id="wrap">
+        <div id="loading">
+            加载中。。。
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/loading.js"></script>
+<!--<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
+</html>
