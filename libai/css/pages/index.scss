@@ -8,7 +8,7 @@
 .banner{
     width: 100%;
     height: r(300);
-    @include bg('https://img.mofyi.com/201811/0210440575980.jpg')
+    @include bg('https://img.mofyi.com/201811/0210440575980.jpg');
 }
 .index-main{
     @include boxSizing;
