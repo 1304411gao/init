@@ -26,4 +26,9 @@ $(function(){
 	
 	//***定义当前页面的方法***
 	//高
+	let a = 13;
+	let arr = [1, 2, 3, 4,];
+	arr.forEach(i=>{
+		console.log(i)
+	})
 });
