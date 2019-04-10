@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <title>首页</title>
     <meta content="telephone=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <!-- uc强 制竖屏 -->
     <meta name="screen-orientation" content="portrait">
     <!-- qq强制竖屏 -->
@@ -13,17 +15,17 @@
         //根据浏览器宽度给font-size赋值，rem。
         (function (doc, win) {
             var docEl = doc.documentElement,
-                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize' ,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
                 recalc = function () {
                     window.clientWidth = docEl.clientWidth;
-                    if (! window.clientWidth) return ;
-                    docEl. style.fontSize = 20 * (window.clientWidth / 320) + 'px';
-                    window.base = 20 * ( window.clientWidth / 320);
+                    if (!window.clientWidth) return;
+                    docEl.style.fontSize = 20 * (window.clientWidth / 320) + 'px';
+                    window.base = 20 * (window.clientWidth / 320);
                 };
             // Abort if browser does not support addEventListener
-            if (! doc.addEventListener) return;
+            if (!doc.addEventListener) return;
             win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener( 'DOMContentLoaded', recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
         })(document, window);
         //搞定辣鸡微信调整字体大小造成的错乱
         (function () {
@@ -37,6 +39,7 @@
                     document.attachEvent("onWeixinJSBridgeReady", handleFontSize);
                 }
             }
+
             function handleFontSize() {
                 // 设置网页字体为默认大小
                 WeixinJSBridge.invoke('setFontSizeCallback', {
@@ -51,34 +54,37 @@
             }
         })();
     </script>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
+
 <body>
-<div class="wrap">
-    <div class="main">
-        <div class="banner"></div>
-        <div class="index-main">
-            <div class="line1 clear">
-                <a href="" class="index-btn1-1 index-btn1" style="background-image: url(https://img.mofyi.com/201811/0210534363366.png);"></a>
-                <a href="" class="index-btn1-2 index-btn1" style="background-image: url(https://img.mofyi.com/201811/0210534348606.png);"></a>
+    <div class="wrap">
+        <div class="main">
+            <div class="banner"></div>
+            <div class="index-main">
+                <div class="line1 clear">
+                    <a href="" class="index-btn1-1 index-btn1"
+                        style="background-image: url(https://img.mofyi.com/201811/0210534363366.png);"></a>
+                    <a href="" class="index-btn1-2 index-btn1"
+                        style="background-image: url(https://img.mofyi.com/201811/0210534348606.png);"></a>
+                </div>
+                <div class="line2 clear">
+                    <a href="" class="line2-btn1"></a>
+                    <a href="" class="line2-btn2"></a>
+                    <a href="" class="line2-btn3"></a>
+                </div>
+                <div class="line3 clear">
+                    <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595660970.png);"></a>
+                    <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595629424.png);"></a>
+                    <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595657553.png);"></a>
+                    <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595681972.png);"></a>
+                    <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595670694.png);"></a>
+                    <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595675065.png);"></a>
+                </div>
+                <div class="b-logo"></div>
             </div>
-            <div class="line2 clear">
-                <a href="" class="line2-btn1"></a>
-                <a href="" class="line2-btn2"></a>
-                <a href="" class="line2-btn3"></a>
-            </div>
-            <div class="line3 clear">
-                <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595660970.png);"></a>
-                <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595629424.png);"></a>
-                <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595657553.png);"></a>
-                <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595681972.png);"></a>
-                <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595670694.png);"></a>
-                <a href="" style="background-image: url(https://img.mofyi.com/201811/0210595675065.png);"></a>
-            </div>
-            <div class="b-logo"></div>
         </div>
     </div>
-</div>
 </body>
 
 </html>
