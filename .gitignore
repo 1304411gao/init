@@ -14,4 +14,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 libai/1
-test/index.html
